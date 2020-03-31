@@ -1,0 +1,214 @@
+:root {
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  --black: #2d2d2d;
+  --blue: #78ACCD;
+  --grey-light: #d2d2d2;
+  --grey-lighter: #f0f0f0;
+  --grey: #818C95;
+  --orange: #DE6E46;
+  --purple: #AE5989;
+  --block-width: 52px;
+  --block-height: 52px;
+  --padding: 1.5rem;
+  --margin: 0.2rem
+  --cal-width: calc((var(--block-width)*7) + var(--padding) + var(--margin));
+  --cal-height: calc((var(--block-height)*6) + var(--margin)); 
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blue);
+}
+
+.text-grey-light {
+  color: var(--grey-light) !important;
+}
+
+.text-grey {
+  color: var(--grey) !important;
+}
+
+.text-black {
+  color: var(--black) !important;
+}
+
+.text-white {
+  color: white !important;
+}
+
+.calender {
+  background-color: white;
+  box-shadow: 0px 5px 15px 1px #0000002e;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.calender__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  border-bottom: 1px solid var(--grey-light);
+  padding: 0.5rem 1.4rem;
+}
+
+.header p {
+  margin: 0.8rem 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--grey);
+}
+
+.footer {
+  border-top: 1px solid var(--grey-light);
+  padding: 1rem 1.4rem;
+}
+
+.footer p {
+  margin: 1rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.footer .temp {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: var(--black);
+}
+
+.footer .add {
+  width: 3.2rem;
+  height: 3.2rem;
+  cursor: pointer;
+  background-color: white;
+  border: 0.2rem solid var(--orange);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s ease, color 0.3s ease;
+}
+
+.add > span {
+  font-size: 1.5rem;
+  vertical-align: baseline;
+  color: var(--black);
+}
+
+.add:hover {
+  background-color: var(--orange);
+}
+
+.add:hover > span {
+  color: white;
+}
+
+.calender__content {
+  width: var(--cal-width);
+  height: var(--cal-height);
+  margin: 1.2rem;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.week, .date {
+  width: var(--block-width);
+  height: var(--block-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 0.1rem;
+}
+
+.week {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--grey);
+  text-transform: uppercase;
+}
+
+.date {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--black);
+  position: relative;
+  cursor: pointer;
+  background-color: white;
+  transition: background 0.2s ease;
+}
+
+.date:hover:not(.text-grey-light):not(.date-filled):not([class*="date-outline-badge-"]) {
+  background-color: var(--grey-lighter);
+}
+
+.date-filled {
+  background-color: var(--orange);
+  color: white;
+}
+
+.date-outline-badge-blue {
+  border: 0.2rem solid var(--blue);
+}
+
+.date-outline-badge-blue::after {
+  content: '6';
+  position: absolute;
+  top: 0;
+  right: -0.35rem;
+  background-color: var(--blue);
+  color: white;
+  font-size: 0.8rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-outline-badge-purple {
+  border: 0.2rem solid var(--purple);
+}
+
+.date-outline-badge-purple::after {
+  content: '5';
+  position: absolute;
+  top: 0;
+  right: -0.35rem;
+  background-color: var(--purple);
+  color: white;
+  font-size: 0.8rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 12px;
+  }
+
+  .calender {
+    margin: 1rem;
+  }
+}
